@@ -2,9 +2,9 @@
   <div id="app">
     <div class="row">
       <div class="col-md-7">
-        <div class="r">
-          <div class="col-md-6">
-            <producto></producto>
+        <div class="row">
+          <div class="col-md-6" v-for="prod in productos" :key="prod.id">
+            <producto :producto="prod"></producto>
           </div>
         </div>
       </div>
@@ -13,12 +13,18 @@
 </template>
 
 <script>
+import productos from './productos.json'
 import Producto from './components/Producto'
 
 export default {
   name: 'App',
   components: {
     Producto
+  },
+  data() {
+    return {
+      productos
+    }
   }
 }
 </script>
