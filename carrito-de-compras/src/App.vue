@@ -4,7 +4,7 @@
       <div class="col-md-7">
         <div class="row">
           <div class="col-md-6" v-for="prod in productos" :key="prod.id">
-            <producto :producto="prod" v-on:agregar-carro="agregarProdCarr"></producto>
+            <producto :producto="prod" v-on:agregar-carro="agregarProdCarr" :estaEnCarrito="estaEnCarrito(prod)"></producto>
           </div>
         </div>
       </div>
@@ -36,6 +36,13 @@ export default {
   methods: {
     agregarProdCarr(producto) {
       this.carrito.push(producto);
+    },
+    estaEnCarrito(producto) {
+      const item = this.carrito.find(item => item.id === producto.id);
+      if(item) {
+        return true;
+      }
+      return false;
     }
   }
 }
