@@ -6,6 +6,14 @@
                 <button class="btn badge badge-danger float-right" @click="removerItem(item)">Eliminar</button>
             </li>
         </ul>
+
+        <div class="card p-3 my-5">
+            <h4 class="text-center">
+                Total: $ {{ total }}
+            </h4>
+        </div>
+
+        <button @click="$emit('pagar')" :disabled="items.length === 0" class="btn btn-info form-control">Pagar ahora</button>
     </div>
 </template>
 
@@ -13,6 +21,11 @@
 export default {
     name: 'Carrito',
     props: ['items'],
+    computed: {
+        total() {
+            return this.items.reduce((acumulador, item) => acumulador + Number(item.precio), 0);
+        }
+    },
     methods: {
         removerItem(item) {
             this.$emit('remover-item', item);
