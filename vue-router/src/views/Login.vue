@@ -1,21 +1,25 @@
 <template>
-  <div class="">
-        <div class="login-page">
-            <div class="form">
-                <h2>Ingrese sus datos</h2>
-                <form class="login-form">
-                    <input type="text" placeholder="username"/>
-                    <input type="password" placeholder="password"/>
-                    <button>login</button>
-                </form>
-            </div>
+  <div class="login-page">
+        <div class="form">
+            <h2>Ingrese sus datos</h2>
+            <button class="btn btn-info btn-block" @click="signup()">Register</button><br />
+            <form class="login-form">
+                <input type="text" placeholder="username"/>
+                <input type="password" placeholder="password"/>
+                <button>login</button>
+            </form>
         </div>
-  </div>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'Login'
+    name: 'Login',
+    methods: {
+        signup() {
+            this.$router.push('/signup');
+        }
+    }
 }
 </script>
 
@@ -107,15 +111,5 @@ export default {
     }
     .container .info span .fa {
         color: #EF3B3A;
-    }
-    body {
-        background: #76b852; /* fallback for old browsers */
-        background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-        background: -moz-linear-gradient(right, #76b852, #8DC26F);
-        background: -o-linear-gradient(right, #76b852, #8DC26F);
-        background: linear-gradient(to left, #76b852, #8DC26F);
-        font-family: "Roboto", sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;      
-    }
+    }    
 </style>
