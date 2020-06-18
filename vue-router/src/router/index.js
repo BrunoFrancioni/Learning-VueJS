@@ -37,6 +37,10 @@ Vue.use(VueRouter)
     path: '/signup',
     name: 'Signup',
     component: () => import('../views/Signup.vue')
+  },
+  {
+    path: '/registrarse',
+    redirect: '/signup'
   }
 ]
 
