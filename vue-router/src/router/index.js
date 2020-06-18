@@ -27,6 +27,16 @@ Vue.use(VueRouter)
     path: '/users/:id',
     name: 'Users',
     component: () => import('../views/Usuarios.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue')
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: () => import('../views/Signup.vue')
   }
 ]
 
